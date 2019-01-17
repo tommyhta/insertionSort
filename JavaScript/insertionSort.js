@@ -1,10 +1,16 @@
-uArr = [23,42,4,16,8,15,6,0,33]
+/*
+Insertion Sort
+O(n^2)
+
+*/
+
+uArr = [42,55,12,23,8]
 
 
 
 
 function insertionSort(arr){
-    for(var i=1; i<arr.length-1; i++){ //consider the first index sorted
+    for(var i=1; i<arr.length; i++){ //consider the first index sorted
         temp=arr[i]  //storing the value at the index for swapping 
         j=i //set the index
         while(j>0 && arr[j-1]> temp){  //the following codes will only execute if the index is larger than 0, and the value on its left is larger than value at the index
@@ -16,4 +22,16 @@ function insertionSort(arr){
     return arr
 }
 
+//implementation using for loop
+function forInsertionSort(arr){
+    for(var i =1; i<arr.length; i++){
+        temp = arr[i];
+        for(var j = i; j>0 && arr[j-1]> temp; j--){
+            arr[j] = arr[j-1]
+        }
+        arr[j] = temp
+    }
+    return arr
+}
 console.log(insertionSort(uArr))
+// console.log(forInsertionSort(uArr))
